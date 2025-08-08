@@ -2,8 +2,9 @@
 students = {}
 
 #function to add a student to the dictionary
-def add_student(name, marks):
-    pass
+def add_student(student_name,subject, marks):
+    students[student_name][subject] = int(marks)
+    print(f"Added subject {subject} with marks {marks}")
 
 #Function to view all students
 def view_students():
@@ -20,9 +21,10 @@ def main():
         choice = input("Enter your choice: \n")
 
         if choice == '1':
-            name = input("Enter student name: \n")
+            student_name = input("Enter student name: \n")
+            subject = input("Enter subject name: \n")
             marks = input("Enter student marks: \n")
-            add_student(name,marks)
+            add_student(student_name,subject,marks)
 
         elif choice =='2':
             view_students()
@@ -34,3 +36,4 @@ def main():
             
 
 
+main()
