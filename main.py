@@ -28,12 +28,20 @@ def view_students(student_name=None):
             for subject, marks in subjects.items():
                 print(f"  {subject}: {marks}")
 
+def delete_student(student_name):
+    if student_name in students:
+        del students[student_name]
+        print(f"Deleted success {student_name}")
+    else:
+        print("Student not found")
+
 def main():
     while True:
         print("\nStudent Management System")
         print("1. Add Student")
         print("2. View Students")
-        print("3. Exit")
+        print("3. Delete Student")
+        print("4. Exit")
 
 
         choice = input("Enter your choice: \n")
@@ -52,6 +60,9 @@ def main():
                 view_students(name.strip())
 
         elif choice == '3':
+            student_name = input("Enter student name to delete: \n")
+            delete_student(student_name)
+        elif choice == '4':
             print("Goodbye!!")
             break
 
