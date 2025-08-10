@@ -10,22 +10,23 @@ def add_student(student_name,subject, marks):
 
 #Function to view all students
 def view_students(student_name=None):
-    if students:
+    if not students:
+        print("No students found")
+        return
+    
+    if student_name:
         if student_name in students:
-            for subject , marks in students[student_name].items():
-                print(f"{subject} {marks}")
-
+            print(f"\nStudent: {student_name}")
+            for subject, marks in students[student_name].items():
+                print(f"  {subject}: {marks}")
         else:
             print("Student not found")
     else:
-        if not students:
-            print("Studerts not found")
-            return
-        for student, subject in students.itmes():
-            print(f"\nstudent {student}")
-
-            for subject , marks in students.items():
-                print(f"{subject} {marks}")
+        # Show all students
+        for student, subjects in students.items():
+            print(f"\nStudent: {student}")
+            for subject, marks in subjects.items():
+                print(f"  {subject}: {marks}")
 
 def main():
     while True:
